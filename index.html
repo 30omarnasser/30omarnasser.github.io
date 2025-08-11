@@ -118,9 +118,20 @@
     transform: translateY(-2px);
   }
   
-  /* Default navigation - hidden on mobile */
+  /* Default navigation - visible on desktop */
   nav {
     display: flex;
+  }
+  
+  /* Mobile menu toggle - hidden by default */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
   }
   
   /* Mobile menu toggle - hidden by default */
@@ -1112,81 +1123,99 @@
 </footer>
 
 <script>
-// Mobile menu toggle functionality - COMPLETELY REWRITTEN
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const nav = document.getElementById('topNav');
-const header = document.getElementById('header');
+// FIXED - Safe mobile menu handling with null checks
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const nav = document.getElementById('topNav');
+  const header = document.getElementById('header');
 
-// Initialize mobile menu state
-function initializeMobileMenu() {
-  if (window.innerWidth <= 768) {
-    // On mobile - hide navigation completely
-    nav.classList.remove('mobile-active');
-    mobileMenuToggle.classList.remove('active');
-    nav.style.display = 'none';
-  } else {
-    // On desktop - show navigation normally
-    nav.classList.remove('mobile-active');
-    mobileMenuToggle.classList.remove('active');
-    nav.style.display = 'flex';
+  // Check if elements exist before using them
+  if (!mobileMenuToggle || !nav || !header) {
+    console.log('Menu elements not found, skipping mobile menu setup');
+    return;
   }
-}
 
-if (mobileMenuToggle && nav) {
-  // Initialize on page load
-  initializeMobileMenu();
-  
+  // FORCE hide menu on page load for mobile
+  function forceHideMobileMenu() {
+    try {
+      if (window.innerWidth <= 768) {
+        nav.style.display = 'none';
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+      } else {
+        nav.style.display = 'flex';
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+      }
+    } catch (error) {
+      console.log('Error in forceHideMobileMenu:', error);
+    }
+  }
+
+  // Initialize immediately
+  forceHideMobileMenu();
+
   // Toggle mobile menu
-  mobileMenuToggle.addEventListener('click', (e) => {
+  mobileMenuToggle.addEventListener('click', function(e) {
     e.stopPropagation();
     e.preventDefault();
     
-    const isActive = nav.classList.contains('mobile-active');
-    
-    if (isActive) {
-      // Close menu
-      nav.classList.remove('mobile-active');
-      mobileMenuToggle.classList.remove('active');
-      setTimeout(() => {
-        nav.style.display = 'none';
-      }, 300);
-    } else {
-      // Open menu
-      nav.style.display = 'flex';
-      setTimeout(() => {
-        nav.classList.add('mobile-active');
-        mobileMenuToggle.classList.add('active');
-      }, 10);
+    try {
+      if (window.innerWidth <= 768) {
+        const isHidden = nav.style.display === 'none' || !nav.classList.contains('mobile-active');
+        
+        if (isHidden) {
+          // Show menu
+          nav.style.display = 'flex';
+          nav.classList.add('mobile-active');
+          mobileMenuToggle.classList.add('active');
+        } else {
+          // Hide menu
+          nav.style.display = 'none';
+          nav.classList.remove('mobile-active');
+          mobileMenuToggle.classList.remove('active');
+        }
+      }
+    } catch (error) {
+      console.log('Error in menu toggle:', error);
     }
   });
 
   // Close mobile menu when clicking on a navigation link
-  nav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A' && window.innerWidth <= 768) {
-      nav.classList.remove('mobile-active');
-      mobileMenuToggle.classList.remove('active');
-      setTimeout(() => {
+  nav.addEventListener('click', function(e) {
+    try {
+      if (e.target.tagName === 'A' && window.innerWidth <= 768) {
         nav.style.display = 'none';
-      }, 300);
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+      }
+    } catch (error) {
+      console.log('Error in nav click:', error);
     }
   });
 
   // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && !header.contains(e.target)) {
-      nav.classList.remove('mobile-active');
-      mobileMenuToggle.classList.remove('active');
-      setTimeout(() => {
+  document.addEventListener('click', function(e) {
+    try {
+      if (window.innerWidth <= 768 && !header.contains(e.target)) {
         nav.style.display = 'none';
-      }, 300);
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+      }
+    } catch (error) {
+      console.log('Error in outside click:', error);
     }
   });
   
   // Handle window resize
-  window.addEventListener('resize', () => {
-    initializeMobileMenu();
+  window.addEventListener('resize', function() {
+    try {
+      forceHideMobileMenu();
+    } catch (error) {
+      console.log('Error in resize:', error);
+    }
   });
-}
+});
 function createParticles() {
   const container = document.getElementById('particles');
   const particleCount = 50;
@@ -1207,34 +1236,48 @@ const navLinks = document.querySelectorAll('nav a');
 const sections = Array.from(document.querySelectorAll('main section'));
 const header = document.getElementById('header');
 
-// Intersection observer for active navigation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
+// Safety check for elements
+if (navLinks.length > 0 && sections.length > 0 && header) {
+  // Intersection observer for active navigation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          if (link && link.getAttribute) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          }
+        });
+      }
+    });
+  }, { root: null, threshold: 0.6 });
+
+  sections.forEach(section => {
+    if (section) observer.observe(section);
+  });
+}
+
+// Header scroll effect with safety checks
+if (header) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 100;
+    header.classList.toggle('scrolled', scrolled);
+    
+    // Show/hide scroll to top button
+    const scrollTop = document.getElementById('scrollTop');
+    if (scrollTop) {
+      scrollTop.style.display = scrolled ? 'flex' : 'none';
     }
   });
-}, { root: null, threshold: 0.6 });
+}
 
-sections.forEach(section => observer.observe(section));
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 100;
-  header.classList.toggle('scrolled', scrolled);
-  
-  // Show/hide scroll to top button
-  const scrollTop = document.getElementById('scrollTop');
-  scrollTop.style.display = scrolled ? 'flex' : 'none';
-});
-
-// Scroll to top functionality
-document.getElementById('scrollTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Scroll to top functionality with safety check
+const scrollTopBtn = document.getElementById('scrollTop');
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Modal functionality
 const modal = document.getElementById('modal');
