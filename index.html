@@ -118,13 +118,21 @@
     transform: translateY(-2px);
   }
   
-  nav a.active {
-    color: var(--text-bright);
-    background: rgba(0, 212, 170, 0.1);
-    border: 1px solid rgba(0, 212, 170, 0.3);
+  /* Default navigation - hidden on mobile */
+  nav {
+    display: flex;
   }
-
-  /* Main content */
+  
+  /* Mobile menu toggle - hidden by default */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
   main {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -812,15 +820,13 @@
   .muted-small { color: var(--muted); font-size: 0.875rem; }
   .text-center { text-align: center; }
   
-  /* Mobile menu toggle */
-  .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+  nav a.active {
+    color: var(--text-bright);
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.3);
   }
+
+  /* Main content */
   
   .mobile-menu-toggle span {
     width: 25px;
@@ -1106,43 +1112,79 @@
 </footer>
 
 <script>
-// Mobile menu toggle functionality
+// Mobile menu toggle functionality - COMPLETELY REWRITTEN
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const nav = document.getElementById('topNav');
+const header = document.getElementById('header');
+
+// Initialize mobile menu state
+function initializeMobileMenu() {
+  if (window.innerWidth <= 768) {
+    // On mobile - hide navigation completely
+    nav.classList.remove('mobile-active');
+    mobileMenuToggle.classList.remove('active');
+    nav.style.display = 'none';
+  } else {
+    // On desktop - show navigation normally
+    nav.classList.remove('mobile-active');
+    mobileMenuToggle.classList.remove('active');
+    nav.style.display = 'flex';
+  }
+}
 
 if (mobileMenuToggle && nav) {
-  // Ensure menu starts closed
-  nav.classList.remove('active');
-  mobileMenuToggle.classList.remove('active');
+  // Initialize on page load
+  initializeMobileMenu();
   
+  // Toggle mobile menu
   mobileMenuToggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    mobileMenuToggle.classList.toggle('active');
-    nav.classList.toggle('active');
+    e.preventDefault();
+    
+    const isActive = nav.classList.contains('mobile-active');
+    
+    if (isActive) {
+      // Close menu
+      nav.classList.remove('mobile-active');
+      mobileMenuToggle.classList.remove('active');
+      setTimeout(() => {
+        nav.style.display = 'none';
+      }, 300);
+    } else {
+      // Open menu
+      nav.style.display = 'flex';
+      setTimeout(() => {
+        nav.classList.add('mobile-active');
+        mobileMenuToggle.classList.add('active');
+      }, 10);
+    }
   });
 
-  // Close mobile menu when clicking on a link
+  // Close mobile menu when clicking on a navigation link
   nav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
+    if (e.target.tagName === 'A' && window.innerWidth <= 768) {
+      nav.classList.remove('mobile-active');
       mobileMenuToggle.classList.remove('active');
-      nav.classList.remove('active');
+      setTimeout(() => {
+        nav.style.display = 'none';
+      }, 300);
     }
   });
 
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (!header.contains(e.target)) {
+    if (window.innerWidth <= 768 && !header.contains(e.target)) {
+      nav.classList.remove('mobile-active');
       mobileMenuToggle.classList.remove('active');
-      nav.classList.remove('active');
+      setTimeout(() => {
+        nav.style.display = 'none';
+      }, 300);
     }
   });
   
-  // Close menu on window resize (when switching to desktop)
+  // Handle window resize
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      mobileMenuToggle.classList.remove('active');
-      nav.classList.remove('active');
-    }
+    initializeMobileMenu();
   });
 }
 function createParticles() {
