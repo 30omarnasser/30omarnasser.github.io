@@ -1,0 +1,436 @@
+// ========================
+// START/STOP LATCH
+// ========================
+
+      A     "Start"                     // If Start button is pressed
+      S     "Start_Stop"                // Set the memory bit Start_Stop (turn system ON)
+
+      AN    "Stop"                      // If Stop button is NOT pressed
+      R     "Start_Stop"                // If Stop is pressed ? Reset Start_Stop (turn system OFF)
+
+
+// ==============================
+// CONVEYOR START
+// ==============================
+
+      A     "Start_Stop"                // System is ON
+      AN    "At front"                  // Front sensor is clear (no box blocking)
+      A     "At load postion"           // Box is ready at the load position
+      S     "CONV_1"                    // Start Conveyor 1 (moves box to front)
+      S     "CONV_2"                    // Start Conveyor 2 (works with Conveyor 1)
+
+
+// ==============================
+//right and left CONVEYOR START
+// ==============================
+
+      A     "Start_Stop"
+      S     "Left Conv"
+      S     "Right  Conv"
+
+      AN    "Start_Stop"
+      R     "Left Conv"
+      R     "Right  Conv"
+
+
+
+// ==============================
+//   counter setup   1 
+// ==============================
+      A     "At entry"
+      CU    C      1
+
+      L     C      1
+      T     MW    10
+
+      A(    
+      L     MW    10
+      L     7
+      ==I   
+      )     
+      R     C      1
+// ==============================
+//   counter setup   1 
+// ==============================
+      A     "At unload postion"
+      CU    C      2
+
+      L     C      2
+      T     MW    12
+
+      A(    
+      L     MW    12
+      L     7
+      ==I   
+      )     
+      R     C      2
+
+// ==============================
+//   boxes count 
+// ==============================
+
+      A(    
+      L     MW    10
+      L     1
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.1
+
+      A(    
+      L     MW    10
+      L     2
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.2
+
+
+      A(    
+      L     MW    10
+      L     3
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.3
+
+
+
+      A(    
+      L     MW    10
+      L     4
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.4
+
+
+
+      A(    
+      L     MW    10
+      L     5
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.5
+
+
+
+      A(    
+      L     MW    10
+      L     6
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.6
+
+      A(    
+      L     MW    10
+      L     7
+      ==I   
+      )     
+      A     "s1"
+      A     "s2"
+      S     M      0.7
+
+
+
+
+
+// ========================================
+// STOP CONVEYORS AT TURNTABLE
+// ========================================
+
+      A     "At turntable entry"        // Box has reached the turntable entry
+      A     "At front"                  // Still detected at front sensor
+      R     "CONV_1"                    // Stop Conveyor 1
+      R     "CONV_2"                    // Stop Conveyor 2
+
+
+// ================================
+// load  COMMAND
+// ================================
+
+      A     "At turntable entry"        // If box is present at the turntable
+      A     "At load postion"
+      S     "Load&left"                 // Activate the turntable to load and rotate left
+
+
+// =========================================
+//: CANCEL LOAD&LEFT IF BLOCKED
+// =========================================
+
+      A     "At front"                  // If front is still occupied (box didn't move)
+      A     "At load postion"
+      R     "Load&left"                 // Cancel the Load&Left command (prevent wrong turn)
+
+
+// =========================================
+//: what if big boxes 
+// =========================================
+
+// --- Condition: If MW12 = 1 and M0.1 is ON and box is at unload position ---
+      A(                                // Start AND block
+      L     MW    12                    // Load word MW12 into ACCU1
+      L     1                           // Load constant 1 into ACCU2
+      ==I                               // Compare if MW12 == 1 (integer compare)
+      )                                 // End AND block
+      A     M      0.1                  // AND with memory bit M0.1 (big box detected in lane 1)
+      A     "At unload postion"         // AND with position sensor: box is at unload position
+      S     "Load&left"                 // Set output "Load&left" (send box to left)
+
+// --- Same logic for MW12 = 2 and M0.2 ---
+      A(    
+      L     MW    12
+      L     2
+      ==I   
+      )     
+      A     M      0.2
+      A     "At unload postion"
+      S     "Load&left"
+
+// --- Same for MW12 = 3 and M0.3 ---
+      A(    
+      L     MW    12
+      L     3
+      ==I   
+      )     
+      A     M      0.3
+      A     "At unload postion"
+      S     "Load&left"
+
+// --- Same for MW12 = 4 and M0.4 ---
+      A(    
+      L     MW    12
+      L     4
+      ==I   
+      )     
+      A     M      0.4
+      A     "At unload postion"
+      S     "Load&left"
+
+// --- Same for MW12 = 5 and M0.5 ---
+      A(    
+      L     MW    12
+      L     5
+      ==I   
+      )     
+      A     M      0.5
+      A     "At unload postion"
+      S     "Load&left"
+
+// --- Same for MW12 = 6 and M0.6 ---
+      A(    
+      L     MW    12
+      L     6
+      ==I   
+      )     
+      A     M      0.6
+      A     "At unload postion"
+      S     "Load&left"
+
+// --- Same for MW12 = 7 and M0.7 ---
+      A(    
+      L     MW    12
+      L     7
+      ==I   
+      )     
+      A     M      0.7
+      A     "At unload postion"
+      S     "Load&left"
+
+
+// =========================================
+//: what if small boxes 
+// =========================================
+
+// --- If MW12 = 1, M0.1 is OFF (small box), "At front" and "At unload position" are ON ---
+      A(    
+      L     MW    12
+      L     1
+      ==I   
+      )     
+      AN    M      0.1                  // AND NOT M0.1 (small box, not big)
+      A     "At front"                  // AND box at front position
+      A     "At unload postion"
+      S     "Right"                     // Send box to right
+
+// --- Same for MW12 = 2 and M0.2 ---
+      A(    
+      L     MW    12
+      L     2
+      ==I   
+      )     
+      AN    M      0.2
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+// --- Same for MW12 = 3 and M0.3 ---
+      A(    
+      L     MW    12
+      L     3
+      ==I   
+      )     
+      AN    M      0.3
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+// --- Same for MW12 = 4 and M0.4 ---
+      A(    
+      L     MW    12
+      L     4
+      ==I   
+      )     
+      AN    M      0.4
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+// --- Same for MW12 = 5 and M0.5 ---
+      A(    
+      L     MW    12
+      L     5
+      ==I   
+      )     
+      AN    M      0.5
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+// --- Same for MW12 = 6 and M0.6 ---
+      A(    
+      L     MW    12
+      L     6
+      ==I   
+      )     
+      AN    M      0.6
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+// --- Same for MW12 = 7 and M0.7 ---
+      A(    
+      L     MW    12
+      L     7
+      ==I   
+      )     
+      AN    M      0.7
+      A     "At front"
+      A     "At unload postion"
+      S     "Right"
+
+
+// =========================================
+// TURNING THE TABLE
+// =========================================
+
+// --- If box is "At front", start turning table ---
+      A     "At front"
+      S     "Turn Table"
+
+// --- If box is "At right entry" and M2.0 is FALSE, stop turning and right output ---
+      A     "At right entry"
+      FN    M      2.0                  // Function NOT M2.0
+      R     "Turn Table"                // Reset turn table output
+      R     "Right"                     // Reset right conveyor
+
+// --- If box is "At left entry" and M2.1 is FALSE, stop turning and load left ---
+      A     "At left entry"
+      FN    M      2.1
+      R     "Turn Table"
+      R     "Load&left"
+// =========================================
+// POSITION & MEMORY BIT SETTING
+// =========================================
+
+// --- If at right entry and M2.3 is FALSE, set M5.1 ---
+      A     "At right entry"            // AND condition: box is at right entry
+      FN    M      2.3                  // Function NOT M2.3 (invert signal)
+      =     M      5.1                  // Store result in M5.1
+
+// --- If at left entry and M2.4 is FALSE, set M5.2 ---
+      A     "At left entry"             // AND condition: box is at left entry
+      FN    M      2.4                  // Function NOT M2.4
+      =     M      5.2                  // Store result in M5.2
+
+
+// =========================================
+// RESET BIG BOX MEMORY WHEN AT LOAD POSITION
+// =========================================
+
+// --- If MW12 = 1 and "At load position", reset M0.1 ---
+      A(    
+      L     MW    12                    // Load MW12 into ACCU1
+      L     1                           // Load constant 1 into ACCU2
+      ==I                               // Compare MW12 == 1
+      )     
+      A     "At load postion"           // AND condition: at load position
+      R     M      0.1                  // Reset memory bit M0.1 (big box flag for lane 1)
+
+// --- If MW12 = 2 and "At load position", reset M0.2 ---
+      A(    
+      L     MW    12
+      L     2
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.2
+
+// --- If MW12 = 3 and "At load position", reset M0.3 ---
+      A(    
+      L     MW    12
+      L     3
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.3
+
+// --- If MW12 = 4 and "At load position", reset M0.4 ---
+      A(    
+      L     MW    12
+      L     4
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.4
+
+// --- If MW12 = 5 and "At load position", reset M0.5 ---
+      A(    
+      L     MW    12
+      L     5
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.5
+
+// --- If MW12 = 6 and "At load position", reset M0.6 ---
+      A(    
+      L     MW    12
+      L     6
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.6
+
+// --- If MW12 = 7 and "At load position", reset M0.7 ---
+      A(    
+      L     MW    12
+      L     7
+      ==I   
+      )     
+      A     "At load postion"
+      R     M      0.7
+
+
+
+
+
+
