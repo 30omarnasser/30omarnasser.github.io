@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Omar Nasser — AI & Machine Learning Engineer</title>
-<meta name="description" content="Portfolio of Omar Nasser — AI & Machine Learning Engineer"/>
+<title>Omar Nasser El Din — AI & ML Engineer</title>
+<meta name="description" content="Portfolio of Omar Nasser El Din Ahmed — AI & Machine Learning Engineer specializing in LLMs, Computer Vision, and MLOps"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -63,7 +63,7 @@ h2{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 .hero h1{font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1.12;margin-bottom:20px;}
 .hero h1 em{font-style:normal;color:transparent;background:linear-gradient(130deg,var(--accent) 0%,#38d9d9 60%);-webkit-background-clip:text;background-clip:text;}
-.hero-desc{color:var(--muted);font-size:17px;max-width:500px;line-height:1.7;margin-bottom:32px}
+.hero-desc{color:var(--muted);font-size:17px;max-width:520px;line-height:1.7;margin-bottom:32px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;background:var(--accent);color:#021a1a;font-weight:700;font-size:14px;text-decoration:none;transition:opacity .2s,transform .15s;box-shadow:0 0 24px rgba(14,165,164,.35);}
 .btn-primary:hover{opacity:.88;transform:translateY(-2px)}
@@ -85,15 +85,14 @@ h2{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 
 /* ── CARDS ── */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:24px}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;margin-top:24px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;margin-top:24px}
 .card{background:var(--surface);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;box-shadow:var(--card-glow);display:flex;flex-direction:column;}
 .card:hover{border-color:rgba(14,165,164,.3);transform:translateY(-4px);box-shadow:0 0 0 1px rgba(14,165,164,.2),0 20px 40px rgba(2,10,28,.8),0 0 60px rgba(14,165,164,.06);}
-.card-thumb{width:100%;height:175px;object-fit:cover;display:block;background:linear-gradient(135deg,#0c1526,#111d30);}
-.card-thumb-placeholder{width:100%;height:175px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--surface),var(--surface2));font-size:40px;}
+.card-thumb{width:100%;height:175px;object-fit:cover;display:block;}
+.card-thumb-placeholder{width:100%;height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--surface),var(--surface2));font-size:40px;}
 .card-body{padding:18px;flex:1;display:flex;flex-direction:column}
 .card-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
 .card h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;line-height:1.35}
-.card h4{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
 .card p{color:var(--muted);font-size:14px;line-height:1.6;flex:1}
 .card-footer{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.04);}
 .link{font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:5px;transition:opacity .18s;}
@@ -109,6 +108,13 @@ h2{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 .filter-btn{font-size:13px;font-weight:500;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:var(--muted);padding:7px 16px;border-radius:8px;cursor:pointer;transition:all .2s;}
 .filter-btn:hover{background:rgba(255,255,255,.07);color:var(--text)}
 .filter-btn.active{background:rgba(14,165,164,.1);border-color:rgba(14,165,164,.35);color:var(--accent)}
+
+/* ── SKILLS GRID ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:24px}
+.skill-group{background:var(--surface);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);padding:18px;box-shadow:var(--card-glow);}
+.skill-group-title{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.skill-chips{display:flex;flex-wrap:wrap;gap:6px}
+.skill-chip{font-size:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--muted);padding:4px 10px;border-radius:6px;}
 
 /* ── TIMELINE ── */
 .timeline{display:flex;flex-direction:column;gap:0;margin-top:24px}
@@ -176,8 +182,9 @@ footer a:hover{color:var(--accent)}
     <nav id="topNav">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#courses">Courses</a>
+      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#courses">Courses</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="nav-cta">Hire Me →</a>
@@ -195,46 +202,44 @@ footer a:hover{color:var(--accent)}
         <h1>AI & Machine<br><em>Learning Engineer</em></h1>
 
         <p class="hero-desc">
-          I build and deploy machine learning models, computer vision pipelines,
-          and NLP systems — turning raw data into reliable, production-ready AI
-          that creates real impact.
+          Mechatronics Engineering student with advanced expertise in AI, ML, and MLOps.
+          I build end-to-end AI systems — from GraphRAG pipelines and multi-agent frameworks
+          to real-time computer vision deployed on edge hardware.
         </p>
 
         <div class="hero-btns">
           <a href="#projects" class="btn-primary">View Projects →</a>
-          <a href="resume.pdf" download class="btn-ghost">⬇ Download CV</a>
+          <a href="Omar_Nasser_El_Din_Ahmed_FlowCV_Resume_2026-04-18.pdf" download class="btn-ghost">⬇ Download CV</a>
         </div>
 
         <div class="hero-chips">
-          <!-- ✏️ ADD OR REMOVE SKILL CHIPS HERE -->
           <span class="chip">Python</span>
           <span class="chip">PyTorch</span>
-          <span class="chip">TensorFlow</span>
-          <span class="chip">Scikit-learn</span>
-          <span class="chip">HuggingFace</span>
-          <span class="chip">OpenCV</span>
-          <span class="chip">Pandas</span>
+          <span class="chip">LangGraph</span>
+          <span class="chip">LLMOps</span>
           <span class="chip">MLflow</span>
-          <span class="chip">Docker</span>
+          <span class="chip">YOLOv8</span>
+          <span class="chip">Neo4j</span>
           <span class="chip">FastAPI</span>
+          <span class="chip">Docker</span>
+          <span class="chip">HuggingFace</span>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="photo-card">
-          <!-- ✏️ REPLACE src WITH YOUR PHOTO PATH e.g. "photo.jpg" -->
-          <img src="assets/1774008423378.png" alt="Omar Nasser">
+          <!-- ✏️ REPLACE src WITH YOUR PHOTO e.g. "photo.jpg" -->
+          <img src="assets/1774008423378.png" alt="Omar Nasser El Din Ahmed">
           <div class="photo-badge">Omar Nasser · <strong>Cairo, EG</strong></div>
         </div>
       </div>
     </div>
 
-    <!-- ✏️ UPDATE THESE NUMBERS -->
     <div class="stats">
-      <div class="stat"><div class="stat-num">3+</div><div class="stat-lbl">Years in AI/ML</div></div>
-      <div class="stat"><div class="stat-num">12+</div><div class="stat-lbl">Models Deployed</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Certifications</div></div>
-      <div class="stat"><div class="stat-num">92%</div><div class="stat-lbl">Best Model F1</div></div>
+      <div class="stat"><div class="stat-num">8+</div><div class="stat-lbl">AI Projects</div></div>
+      <div class="stat"><div class="stat-num">0.92</div><div class="stat-lbl">Best mAP50</div></div>
+      <div class="stat"><div class="stat-num">20%</div><div class="stat-lbl">Perf. Improvement</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">Certifications</div></div>
     </div>
   </section>
 
@@ -246,102 +251,159 @@ footer a:hover{color:var(--accent)}
 
     <div class="filters" role="group" aria-label="Project filters">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="agents">Agentic AI</button>
       <button class="filter-btn" data-filter="cv">Computer Vision</button>
-      <button class="filter-btn" data-filter="nlp">NLP</button>
-      <button class="filter-btn" data-filter="predictive">Predictive ML</button>
-      <button class="filter-btn" data-filter="generative">Generative AI</button>
+      <button class="filter-btn" data-filter="rag">RAG / LLM</button>
+      <button class="filter-btn" data-filter="mlops">MLOps</button>
     </div>
 
-    <div class="grid" id="projectsGrid">
+    <div class="grid-2" id="projectsGrid">
 
-      <!--
-      ╔════════════════════════════════════════════════════════════╗
-      ║  HOW TO ADD A PROJECT CARD                                 ║
-      ║  1. Copy one <article> block below                         ║
-      ║  2. Change data-type to:                                   ║
-      ║     cv | nlp | predictive | generative                     ║
-      ║  3. Replace emoji or swap placeholder for a real <img>:    ║
-      ║     <img class="card-thumb" src="projects/x.jpg" alt="…"> ║
-      ║  4. Update title, description, tags                        ║
-      ║  5. Set data-img or data-video on the action link          ║
-      ╚════════════════════════════════════════════════════════════╝
-      -->
-
-      <!-- PROJECT 1 — Computer Vision -->
-      <article class="card project-card" data-type="cv">
-        <div class="card-thumb-placeholder">👁</div>
+      <!-- PROJECT 1 — Multi-Agent System -->
+      <article class="card project-card" data-type="agents">
+        <div class="card-thumb-placeholder">🤖</div>
         <div class="card-body">
-          <div class="card-tag">Computer Vision · Classification</div>
-          <h3>VisionSense — Emotion & Behavior Analyzer</h3>
-          <p>Real-time face detection and multi-class behavior classification pipeline, deployed as a live demo with full dataset preprocessing scripts.</p>
+          <div class="card-tag">Agentic AI · LangGraph · MLOps</div>
+          <h3>Autonomous Multi-Agent AI System</h3>
+          <p>Production-grade multi-agent system with 5 specialist roles (Planner, Researcher, Coder, Critic, Responder) and self-correcting feedback loops. Features a 5-layer memory system with hybrid retrieval (vector + keyword + RRF), MLflow tracking, and human-in-the-loop approval.</p>
           <div class="tag-list">
             <span class="tag">Python</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">TensorFlow</span>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="link media-open" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-alt="VisionSense demo">▶ Watch Demo</a>
-            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link-muted">GitHub →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 2 — Predictive ML -->
-      <article class="card project-card" data-type="predictive">
-        <div class="card-thumb-placeholder">📈</div>
-        <div class="card-body">
-          <div class="card-tag">Predictive ML · Time Series</div>
-          <h3>LSTM Failure Prediction</h3>
-          <p>LSTM trained on vibration sensor time-series to predict equipment failures 48 h in advance. Trained and evaluated on the CWRU bearing dataset.</p>
-          <div class="metric">🎯 92% F1-score on test set</div>
-          <div class="tag-list">
-            <span class="tag">PyTorch</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">CWRU Dataset</span>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="link">📓 Notebook</a>
-            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link-muted">GitHub →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 3 — NLP -->
-      <article class="card project-card" data-type="nlp">
-        <div class="card-thumb-placeholder">🧠</div>
-        <div class="card-body">
-          <div class="card-tag">NLP · Text Classification</div>
-          <h3>Arabic Sentiment Classifier</h3>
-          <p>Fine-tuned AraBERT on a labeled Arabic review corpus for multi-class sentiment analysis. Deployed as a REST API with FastAPI and Docker.</p>
-          <div class="tag-list">
-            <span class="tag">HuggingFace</span>
-            <span class="tag">AraBERT</span>
+            <span class="tag">LangGraph</span>
             <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">pgvector</span>
+            <span class="tag">Ollama</span>
             <span class="tag">Docker</span>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="link media-open" data-img="https://via.placeholder.com/1280x720?text=Sentiment+Results" data-alt="Sentiment classifier results">🖼 View Results</a>
-            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link-muted">GitHub →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- PROJECT 4 — Generative AI -->
-      <article class="card project-card" data-type="generative">
-        <div class="card-thumb-placeholder">✨</div>
-        <div class="card-body">
-          <div class="card-tag">Generative AI · RAG · LLM</div>
-          <h3>RAG-Powered Document Q&A</h3>
-          <p>Retrieval-augmented generation pipeline over PDF documents using LangChain, FAISS vector store, and an OpenAI backend — with a Streamlit UI.</p>
-          <div class="tag-list">
-            <span class="tag">LangChain</span>
-            <span class="tag">FAISS</span>
-            <span class="tag">OpenAI API</span>
+            <span class="tag">MLflow</span>
             <span class="tag">Streamlit</span>
           </div>
           <div class="card-footer">
-            <a href="#" class="link media-open" data-img="https://via.placeholder.com/1280x720?text=RAG+Demo" data-alt="RAG demo screenshot">🖼 View Demo</a>
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2 — GraphRAG -->
+      <article class="card project-card" data-type="rag">
+        <div class="card-thumb-placeholder">🕸️</div>
+        <div class="card-body">
+          <div class="card-tag">RAG · Knowledge Graph · LLM</div>
+          <h3>Industrial GenAI Knowledge System (GraphRAG)</h3>
+          <p>Hybrid GraphRAG system combining Knowledge Graphs and semantic search for industrial document retrieval. Dual-database architecture with Neo4j for relationships and PostgreSQL/Supabase for analytics. Custom Voyage AI embedding pipeline improved domain-specific response relevance by 30%.</p>
+          <div class="metric">📈 30% relevance improvement</div>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Neo4j</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Voyage AI</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3 — Waste Detection MLOps -->
+      <article class="card project-card" data-type="cv mlops">
+        <div class="card-thumb-placeholder">♻️</div>
+        <div class="card-body">
+          <div class="card-tag">Computer Vision · MLOps · Edge AI</div>
+          <h3>Real-Time Waste Detection & MLOps Pipeline</h3>
+          <p>Production active learning pipeline for waste classification deployed on Raspberry Pi. 7.4k image dataset from 5 sources with class balancing and VOC-to-YOLO conversion. Automated collect-label-retrain loop with MLflow tracking and ONNX/TFLite optimization for 20+ FPS on edge.</p>
+          <div class="metric">🎯 mAP50: 0.92 · ⚡ 15ms inference</div>
+          <div class="tag-list">
+            <span class="tag">YOLOv8</span>
+            <span class="tag">MLflow</span>
+            <span class="tag">ONNX</span>
+            <span class="tag">TFLite</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4 — Vision-Sense -->
+      <article class="card project-card" data-type="cv">
+        <div class="card-thumb-placeholder">👁</div>
+        <div class="card-body">
+          <div class="card-tag">Computer Vision · Deep Learning</div>
+          <h3>Vision-Sense: Behavioral Intelligence Engine</h3>
+          <p>End-to-end CV pipeline quantifying human emotions and behavioral patterns using custom-trained deep learning models. Implements facial expression recognition and spatial-temporal analysis for real-time behavioral anomaly detection in automated monitoring and safety applications.</p>
+          <div class="tag-list">
+            <span class="tag">PyTorch</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="link media-open" data-img="https://via.placeholder.com/1280x720?text=VisionSense+Demo" data-alt="VisionSense demo">🖼 View Demo</a>
             <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link-muted">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 5 — Prompt Versioning -->
+      <article class="card project-card" data-type="mlops">
+        <div class="card-thumb-placeholder">🗂️</div>
+        <div class="card-body">
+          <div class="card-tag">LLMOps · Backend · DevOps</div>
+          <h3>Prompt Versioning System</h3>
+          <p>Git-style prompt versioning and evaluation system for LLMOps using Llama 3.1 8B. FastAPI backend with execution engine, A/B testing, and manual evaluation features. Relational schema with SQLAlchemy, containerized with Docker Compose.</p>
+          <div class="tag-list">
+            <span class="tag">FastAPI</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 6 — Memory Management -->
+      <article class="card project-card" data-type="agents">
+        <div class="card-thumb-placeholder">🧠</div>
+        <div class="card-body">
+          <div class="card-tag">Agentic AI · LLM Memory</div>
+          <h3>Memory Management System for Long-Running AI Agents</h3>
+          <p>Multi-layer memory architecture (working, episodic, semantic) for long-running LLM agents. Efficiently compresses conversation history, enables semantic retrieval via embeddings, and maintains coherence across thousands of interaction turns.</p>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Vector Search</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 7 — Reasoning System -->
+      <article class="card project-card" data-type="agents">
+        <div class="card-thumb-placeholder">🔗</div>
+        <div class="card-body">
+          <div class="card-tag">Agentic AI · Prompt Engineering</div>
+          <h3>Reasoning System — Multi-Step AI Agent Framework</h3>
+          <p>Modular LLM reasoning engine implementing Chain-of-Thought, ReAct, and Tree of Thoughts strategies using Llama 3.1:8B locally via Ollama. Built with Pydantic validation and full pytest coverage.</p>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">ReAct</span>
+            <span class="tag">CoT</span>
+            <span class="tag">Tree of Thoughts</span>
+            <span class="tag">Pydantic</span>
+            <span class="tag">pytest</span>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/your-repo" target="_blank" rel="noopener" class="link">GitHub →</a>
           </div>
         </div>
       </article>
@@ -351,65 +413,85 @@ footer a:hover{color:var(--accent)}
     </div>
   </section>
 
-  <!-- ══════════ COURSES & CERTS ══════════ -->
-  <section id="courses">
-    <div class="section-label">// Learning</div>
-    <h2>Courses & Certificates</h2>
-    <p class="section-sub">Verified AI/ML credentials and ongoing learning.</p>
+  <!-- ══════════ SKILLS ══════════ -->
+  <section id="skills">
+    <div class="section-label">// Skills</div>
+    <h2>Technical Stack</h2>
+    <p class="section-sub">Tools and technologies I work with daily.</p>
 
-    <div class="grid">
-
-      <!--
-      ╔════════════════════════════════════════════════════════════╗
-      ║  HOW TO ADD A CERTIFICATE                                  ║
-      ║  1. Copy an <a class="cert-card"> block                    ║
-      ║  2. Set href to the credential URL or local PDF path       ║
-      ║  3. Change the emoji, title, issuer and year               ║
-      ╚════════════════════════════════════════════════════════════╝
-      -->
-
-      <a class="cert-card" href="#" target="_blank" rel="noopener">
-        <div class="cert-icon">🤖</div>
-        <div class="cert-info">
-          <h4>Machine Learning Specialization</h4>
-          <p>DeepLearning.ai · Coursera · 2024</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">ML Frameworks</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Scikit-learn</span>
+          <span class="skill-chip">PyTorch</span>
+          <span class="skill-chip">TensorFlow</span>
+          <span class="skill-chip">Keras</span>
+          <span class="skill-chip">YOLOv8</span>
+          <span class="skill-chip">OpenCV</span>
+          <span class="skill-chip">NumPy</span>
+          <span class="skill-chip">Pandas</span>
         </div>
-      </a>
-
-      <a class="cert-card" href="#" target="_blank" rel="noopener">
-        <div class="cert-icon">🧠</div>
-        <div class="cert-info">
-          <h4>Deep Learning Specialization</h4>
-          <p>DeepLearning.ai · Coursera · 2024</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">LLM & Agentic AI</div>
+        <div class="skill-chips">
+          <span class="skill-chip">LangGraph</span>
+          <span class="skill-chip">LangChain</span>
+          <span class="skill-chip">HuggingFace</span>
+          <span class="skill-chip">Ollama</span>
+          <span class="skill-chip">Voyage AI</span>
+          <span class="skill-chip">RAG</span>
+          <span class="skill-chip">GraphRAG</span>
+          <span class="skill-chip">Prompt Engineering</span>
         </div>
-      </a>
-
-      <a class="cert-card" href="#" target="_blank" rel="noopener">
-        <div class="cert-icon">🐍</div>
-        <div class="cert-info">
-          <h4>Data Analysis with Python</h4>
-          <p>IBM · Coursera · 2023</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">MLOps & Deployment</div>
+        <div class="skill-chips">
+          <span class="skill-chip">MLflow</span>
+          <span class="skill-chip">Docker</span>
+          <span class="skill-chip">FastAPI</span>
+          <span class="skill-chip">Streamlit</span>
+          <span class="skill-chip">ONNX</span>
+          <span class="skill-chip">TFLite</span>
+          <span class="skill-chip">GitHub Actions</span>
+          <span class="skill-chip">Raspberry Pi</span>
         </div>
-      </a>
-
-      <a class="cert-card" href="#" target="_blank" rel="noopener">
-        <div class="cert-icon">👁</div>
-        <div class="cert-info">
-          <h4>Computer Vision Nanodegree</h4>
-          <p>Udacity · 2023</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data & Databases</div>
+        <div class="skill-chips">
+          <span class="skill-chip">PostgreSQL</span>
+          <span class="skill-chip">Neo4j</span>
+          <span class="skill-chip">pgvector</span>
+          <span class="skill-chip">Redis</span>
+          <span class="skill-chip">MySQL</span>
+          <span class="skill-chip">SQL Server</span>
+          <span class="skill-chip">Supabase</span>
         </div>
-      </a>
-
-      <a class="cert-card" href="#" target="_blank" rel="noopener">
-        <div class="cert-icon">💬</div>
-        <div class="cert-info">
-          <h4>NLP with Transformers</h4>
-          <p>HuggingFace · 2024</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">C++</span>
+          <span class="skill-chip">C</span>
         </div>
-      </a>
-
-      <!-- ✏️ PASTE NEW CERT CARDS ABOVE THIS COMMENT -->
-
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data Science Workflow</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Active Learning</span>
+          <span class="skill-chip">Dataset Curation</span>
+          <span class="skill-chip">Data Augmentation</span>
+          <span class="skill-chip">ETL</span>
+          <span class="skill-chip">Feature Engineering</span>
+          <span class="skill-chip">Hyperparameter Tuning</span>
+          <span class="skill-chip">Ensemble Learning</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -420,33 +502,55 @@ footer a:hover{color:var(--accent)}
 
     <div class="timeline">
 
-      <!--
-      ╔════════════════════════════════════════════════════════════╗
-      ║  HOW TO ADD AN EXPERIENCE ENTRY                            ║
-      ║  Copy a .tl-item block and update all fields               ║
-      ╚════════════════════════════════════════════════════════════╝
-      -->
-
+      <!-- JOB 1 — AutomatiX -->
       <div class="tl-item">
         <div class="tl-left">
-          <div class="tl-date">2022 — Present</div>
+          <div class="tl-date">06/2025 – 08/2025</div>
           <div class="tl-dot"></div>
         </div>
         <div class="tl-right">
-          <div class="tl-title">AI / ML Engineer</div>
-          <div class="tl-company">Company X</div>
-          <p class="tl-desc">Designed and deployed ML pipelines for classification and anomaly detection. Built data preprocessing, model training, evaluation, and serving infrastructure end-to-end.</p>
+          <div class="tl-title">AI Engineer</div>
+          <div class="tl-company">AutomatiX · Cairo, Egypt</div>
+          <p class="tl-desc">Architected production AI systems bridging LLMs with industrial automation workflows.</p>
           <ul class="tl-highlights">
-            <li>Reduced false-positive rate by 18% through feature engineering and model tuning</li>
-            <li>Deployed models as REST APIs handling thousands of daily predictions</li>
-            <li>Built model-monitoring dashboards to track data drift in production</li>
+            <li>Architected a production GraphRAG system for technical documentation and SCADA/DCS analysis using Neo4j and Voyage AI, enhancing semantic search accuracy</li>
+            <li>Engineered a multi-layered tech stack (Python, PostgreSQL, Streamlit) integrated with Siemens automation workflows to optimize industrial decision-making</li>
+            <li>Applied Machine Learning to OT systems, bridging AI with PLC programming and HMI design for intelligent industrial support and real-time analytics</li>
           </ul>
           <div class="tag-list" style="margin-top:12px">
             <span class="tag">Python</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">Docker</span>
-            <span class="tag">MLflow</span>
+            <span class="tag">Neo4j</span>
+            <span class="tag">Voyage AI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">GraphRAG</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB 2 — Huawei / NTI -->
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">04/2026 – Present</div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-title">Machine Learning Trainee</div>
+          <div class="tl-company">Huawei Egyptian Talents Academy (ETA) – NTI · 72-Hour Intensive</div>
+          <p class="tl-desc">Intensive ML program covering the full spectrum of supervised and unsupervised learning with hands-on project delivery.</p>
+          <ul class="tl-highlights">
+            <li>Deployed 10+ predictive modeling pipelines, managing the full lifecycle from feature engineering to production-ready neural network implementation</li>
+            <li>Optimized model performance by 15–20% through advanced hyperparameter tuning and ensemble learning</li>
+            <li>Automated end-to-end ML workflows, significantly reducing data cleaning latency and improving training efficiency</li>
+            <li>Applied supervised learning: Linear/Logistic Regression, SVM, KNN, Naïve Bayes, Decision Trees, Random Forests</li>
+            <li>Implemented unsupervised techniques: K-Means clustering and PCA for dimensionality reduction</li>
+          </ul>
+          <div class="tag-list" style="margin-top:12px">
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Python</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Ensemble Methods</span>
+            <span class="tag">MLOps</span>
           </div>
         </div>
       </div>
@@ -456,42 +560,132 @@ footer a:hover{color:var(--accent)}
     </div>
   </section>
 
+  <!-- ══════════ COURSES & CERTS ══════════ -->
+  <section id="courses">
+    <div class="section-label">// Learning</div>
+    <h2>Courses & Certificates</h2>
+    <p class="section-sub">Verified credentials from global institutions.</p>
+
+    <div class="grid">
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-info">
+          <h4>Artificial Intelligence Course</h4>
+          <p>Huawei Academy · 80 Hours</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">🐍</div>
+        <div class="cert-info">
+          <h4>Python for AI and Data Science</h4>
+          <p>IBM</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">📊</div>
+        <div class="cert-info">
+          <h4>Introduction to Data Analysis</h4>
+          <p>IBM · Coursera</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">📈</div>
+        <div class="cert-info">
+          <h4>Data Visualization & Dashboards</h4>
+          <p>IBM · Coursera (Excel & Cognos)</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">🔒</div>
+        <div class="cert-info">
+          <h4>ICS Cybersecurity Training (300)</h4>
+          <p>CISA · Cybersecurity & Infrastructure Security Agency</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">⚙️</div>
+        <div class="cert-info">
+          <h4>Basic Automation Diploma</h4>
+          <p>HA Consulting Group</p>
+        </div>
+      </a>
+
+      <a class="cert-card" href="#" target="_blank" rel="noopener">
+        <div class="cert-icon">🏭</div>
+        <div class="cert-info">
+          <h4>Advanced Automation</h4>
+          <p>HA Consulting Group</p>
+        </div>
+      </a>
+
+      <!-- ✏️ PASTE NEW CERT CARDS ABOVE THIS COMMENT -->
+
+    </div>
+  </section>
+
+  <!-- ══════════ EDUCATION ══════════ -->
+  <section id="education">
+    <div class="section-label">// Education</div>
+    <h2>Education</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">2026</div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-title">Bachelor of Engineering in Mechatronics</div>
+          <div class="tl-company">Helwan University · Cairo, Egypt</div>
+          <p class="tl-desc">Multidisciplinary engineering program covering mechanical systems, electronics, control theory, and embedded software — providing the foundation for applied AI in physical systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ CONTACT ══════════ -->
   <section id="contact">
     <div class="section-label">// Contact</div>
     <h2>Get In Touch</h2>
     <p class="section-sub" style="max-width:500px">
-      Open to freelance projects, full-time roles, and research collaborations in AI & ML. Drop me a line.
+      Open to AI/ML roles, research collaborations, and freelance projects. Let's build something impactful together.
     </p>
 
     <div class="contact-grid">
-      <!-- ✏️ UPDATE href VALUES WITH YOUR REAL LINKS -->
-      <a class="contact-item" href="mailto:omarq1060@gmail.com">
+      <a class="contact-item" href="mailto:3omarnassereldin@gmail.com">
         <span class="ci-icon">✉️</span>
         <div class="ci-text">
           <small>Email</small>
-          <span>omarq1060@gmail.com</span>
+          <span>3omarnassereldin@gmail.com</span>
+        </div>
+      </a>
+      <a class="contact-item" href="tel:+201095706599">
+        <span class="ci-icon">📞</span>
+        <div class="ci-text">
+          <small>Phone</small>
+          <span>01095706599</span>
+        </div>
+      </a>
+      <a class="contact-item" href="https://github.com/Omar-Nasser" target="_blank" rel="noopener">
+        <!-- ✏️ UPDATE with your real GitHub URL from CV -->
+        <span class="ci-icon">🐱</span>
+        <div class="ci-text">
+          <small>GitHub</small>
+          <span>Omar Nasser</span>
         </div>
       </a>
       <a class="contact-item" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+        <!-- ✏️ UPDATE with your real LinkedIn URL -->
         <span class="ci-icon">💼</span>
         <div class="ci-text">
           <small>LinkedIn</small>
           <span>Omar Nasser</span>
-        </div>
-      </a>
-      <a class="contact-item" href="https://github.com/your-handle" target="_blank" rel="noopener">
-        <span class="ci-icon">🐱</span>
-        <div class="ci-text">
-          <small>GitHub</small>
-          <span>your-handle</span>
-        </div>
-      </a>
-      <a class="contact-item" href="https://kaggle.com/your-handle" target="_blank" rel="noopener">
-        <span class="ci-icon">📊</span>
-        <div class="ci-text">
-          <small>Kaggle</small>
-          <span>your-handle</span>
         </div>
       </a>
     </div>
@@ -500,9 +694,9 @@ footer a:hover{color:var(--accent)}
 </main>
 
 <footer>
-  <span>Built by Omar Nasser · 2025</span>
+  <span>Omar Nasser El Din Ahmed · Cairo, Egypt · 2026</span>
   <div style="display:flex;gap:16px">
-    <a href="resume.pdf" download>⬇ Resume</a>
+    <a href="Omar_Nasser_El_Din_Ahmed_FlowCV_Resume_2026-04-18.pdf" download>⬇ Resume</a>
     <a href="#about">↑ Back to top</a>
   </div>
 </footer>
@@ -533,7 +727,11 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.classList.add('active');
     const f = btn.dataset.filter;
     document.querySelectorAll('.project-card').forEach(card=>{
-      card.classList.toggle('hidden', f!=='all' && card.dataset.type!==f);
+      if(f === 'all'){
+        card.classList.remove('hidden');
+      } else {
+        card.classList.toggle('hidden', !card.dataset.type.includes(f));
+      }
     });
   });
 });
