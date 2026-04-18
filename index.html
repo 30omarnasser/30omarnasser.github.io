@@ -88,8 +88,46 @@ h2{font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;margin-top:24px}
 .card{background:var(--surface);border:1px solid rgba(255,255,255,.05);border-radius:var(--radius);overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;box-shadow:var(--card-glow);display:flex;flex-direction:column;}
 .card:hover{border-color:rgba(14,165,164,.3);transform:translateY(-4px);box-shadow:0 0 0 1px rgba(14,165,164,.2),0 20px 40px rgba(2,10,28,.8),0 0 60px rgba(14,165,164,.06);}
-.card-thumb{width:100%;height:175px;object-fit:cover;display:block;}
-.card-thumb-placeholder{width:100%;height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--surface),var(--surface2));font-size:40px;}
+
+/* ── PROJECT IMAGE THUMBNAIL ── */
+.card-thumb{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  display:block;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:transform .35s ease;
+}
+.card:hover .card-thumb{transform:scale(1.03)}
+/* Fallback placeholder shown when no image / image fails to load */
+.card-thumb-fallback{
+  width:100%;
+  height:190px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  position:relative;
+  overflow:hidden;
+}
+.card-thumb-fallback::after{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 18px,
+    rgba(14,165,164,.04) 18px,
+    rgba(14,165,164,.04) 19px
+  );
+}
+.card-thumb-fallback .fallback-emoji{
+  font-size:44px;
+  position:relative;z-index:1;
+  filter:drop-shadow(0 0 20px rgba(14,165,164,.3));
+}
+
 .card-body{padding:18px;flex:1;display:flex;flex-direction:column}
 .card-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
 .card h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;line-height:1.35}
@@ -228,7 +266,6 @@ footer a:hover{color:var(--accent)}
 
       <div class="hero-right">
         <div class="photo-card">
-          <!-- ✏️ REPLACE src WITH YOUR PHOTO e.g. "photo.jpg" -->
           <img src="assets/1774008423378.png" alt="Omar Nasser El Din Ahmed">
           <div class="photo-badge">Omar Nasser · <strong>Cairo, EG</strong></div>
         </div>
@@ -260,8 +297,17 @@ footer a:hover{color:var(--accent)}
     <div class="grid-2" id="projectsGrid">
 
       <!-- PROJECT 1 — Multi-Agent System -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/multi-agent.png" -->
       <article class="card project-card" data-type="agents">
-        <div class="card-thumb-placeholder">"assets/1776020026139.png"</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/multi-agent.png"
+          alt="Autonomous Multi-Agent AI System"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">🤖</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">Agentic AI · LangGraph · MLOps</div>
           <h3>Autonomous Multi-Agent AI System</h3>
@@ -285,8 +331,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 2 — GraphRAG -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/graphrag.png" -->
       <article class="card project-card" data-type="rag">
-        <div class="card-thumb-placeholder">🕸️</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/graphrag.png"
+          alt="Industrial GenAI Knowledge System"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">🕸️</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">RAG · Knowledge Graph · LLM</div>
           <h3>Industrial GenAI Knowledge System (GraphRAG)</h3>
@@ -306,8 +361,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 3 — Waste Detection MLOps -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/waste-detection.png" -->
       <article class="card project-card" data-type="cv mlops">
-        <div class="card-thumb-placeholder">♻️</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/waste-detection.png"
+          alt="Real-Time Waste Detection & MLOps Pipeline"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">♻️</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">Computer Vision · MLOps · Edge AI</div>
           <h3>Real-Time Waste Detection & MLOps Pipeline</h3>
@@ -328,8 +392,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 4 — Vision-Sense -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/vision-sense.png" -->
       <article class="card project-card" data-type="cv">
-        <div class="card-thumb-placeholder">👁</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/vision-sense.png"
+          alt="Vision-Sense: Behavioral Intelligence Engine"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">👁</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">Computer Vision · Deep Learning</div>
           <h3>Vision-Sense: Behavioral Intelligence Engine</h3>
@@ -348,8 +421,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 5 — Prompt Versioning -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/prompt-versioning.png" -->
       <article class="card project-card" data-type="mlops">
-        <div class="card-thumb-placeholder">🗂️</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/prompt-versioning.png"
+          alt="Prompt Versioning System"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">🗂️</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">LLMOps · Backend · DevOps</div>
           <h3>Prompt Versioning System</h3>
@@ -368,8 +450,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 6 — Memory Management -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/agent-memory.png" -->
       <article class="card project-card" data-type="agents">
-        <div class="card-thumb-placeholder">🧠</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/agent-memory.png"
+          alt="Memory Management System for Long-Running AI Agents"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">🧠</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">Agentic AI · LLM Memory</div>
           <h3>Memory Management System for Long-Running AI Agents</h3>
@@ -387,8 +478,17 @@ footer a:hover{color:var(--accent)}
       </article>
 
       <!-- PROJECT 7 — Reasoning System -->
+      <!-- ✏️ Replace src with your image path, e.g. "assets/projects/reasoning-system.png" -->
       <article class="card project-card" data-type="agents">
-        <div class="card-thumb-placeholder">🔗</div>
+        <img
+          class="card-thumb"
+          src="assets/projects/reasoning-system.png"
+          alt="Reasoning System — Multi-Step AI Agent Framework"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="card-thumb-fallback" style="display:none">
+          <span class="fallback-emoji">🔗</span>
+        </div>
         <div class="card-body">
           <div class="card-tag">Agentic AI · Prompt Engineering</div>
           <h3>Reasoning System — Multi-Step AI Agent Framework</h3>
@@ -502,7 +602,6 @@ footer a:hover{color:var(--accent)}
 
     <div class="timeline">
 
-      <!-- JOB 1 — AutomatiX -->
       <div class="tl-item">
         <div class="tl-left">
           <div class="tl-date">06/2025 – 08/2025</div>
@@ -528,7 +627,6 @@ footer a:hover{color:var(--accent)}
         </div>
       </div>
 
-      <!-- JOB 2 — Huawei / NTI -->
       <div class="tl-item">
         <div class="tl-left">
           <div class="tl-date">04/2026 – Present</div>
@@ -554,8 +652,6 @@ footer a:hover{color:var(--accent)}
           </div>
         </div>
       </div>
-
-      <!-- ✏️ PASTE NEW EXPERIENCE ENTRIES ABOVE THIS COMMENT -->
 
     </div>
   </section>
@@ -624,8 +720,6 @@ footer a:hover{color:var(--accent)}
         </div>
       </a>
 
-      <!-- ✏️ PASTE NEW CERT CARDS ABOVE THIS COMMENT -->
-
     </div>
   </section>
 
@@ -673,7 +767,6 @@ footer a:hover{color:var(--accent)}
         </div>
       </a>
       <a class="contact-item" href="https://github.com/Omar-Nasser" target="_blank" rel="noopener">
-        <!-- ✏️ UPDATE with your real GitHub URL from CV -->
         <span class="ci-icon">🐱</span>
         <div class="ci-text">
           <small>GitHub</small>
@@ -681,7 +774,6 @@ footer a:hover{color:var(--accent)}
         </div>
       </a>
       <a class="contact-item" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
-        <!-- ✏️ UPDATE with your real LinkedIn URL -->
         <span class="ci-icon">💼</span>
         <div class="ci-text">
           <small>LinkedIn</small>
